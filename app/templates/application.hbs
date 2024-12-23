@@ -1,5 +1,141 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="people-outer">
+    <div class="top-bar">
+        <div class="app-name">People</div>
+        <div class="more">
+            <button class="option">1</button>
+            <button class="option">2</button>
+            <button class="option">3</button>
+            <button class="option">4</button>
+        </div>
+    </div>
+    <div class="side-bar">
+        <div class="zoho-one-logo">
+        <img src="zoho-one.svg" class="logo"/>
+        </div>
+        <div class="zoho-one-icons">
+         {{#each ZOIcons as |icon|}}
+            <div class="zoho-icon">
+                <span class="icon-outer" id={{icon.id}}>
+                  <img src={{icon.src}} class="icon"/>
+                </span>
+            </div>
+         {{/each}}
+        </div>
+    </div>
+    <div class="people-options">
+        {{#each peopleIcons as |icon|}}
+        <div class="title" id={{icon.id}}>
+        {{icon.title}}
+        </div>
+        {{/each}}
+        <div class="bottom">
+        {{#each peopleBottom as |icon|}}
+        <div class="title">
+        {{icon.title}}
+        </div>
+        {{/each}}
+        </div>
+    </div>
+    <div class="profile-content" onscroll={{action "handleScroll"}}>
+        <div class="top-scroll">
+            <div class="profile">
+            </div>
+            <div class="top-data">
+            <div class="name">1 - manikandanmg manikandanmg</div>
+            <div class="email">manikandanmg@pugazhgm.com</div>
+        </div>
+        </div>
+        <div class="profile-image-outer">
+        <div class="profile">
+        </div>
+        <div class="profile-data">
+            <div class="name">1 - manikandanmg manikandanmg</div>
+            <div class="email">manikandanmg@pugazhgm.com</div>
+        </div>
+        </div>
+        <div class="options">
+            <div class="option-box">
+                <div class="option">Edit</div>
+                <div class="gap">|</div>
+                <div class="option">View Details</div>
+                <div class="gap">|</div>
+                <div class="option">Personal setting</div>
+            </div>
+        </div>
+        <div class="content">
+             <div class="people-sub-options">
+             {{#each options as |option|}}
+              {{#if option.avail}}
+              <div class="people-option">
+               {{option.title}}
+              </div>
+              {{else}}
+              <div class="people-option" id={{option.id}}>
+              {{option.title}}
+              </div>
+              {{/if}}
+             {{/each}}
+            </div>
+            <div class="right-content">
+            <div class="first-part">
+            {{#details-comp title="About Me" normal=true}}
+            <div class="normal-box">
+                <div class="data-box">
+                    <div class="left">Genaral</div>
+                    <div class="right">(GMT+05:30)</div>
+                </div>
+                <button class="add-common">
+                    ➕
+                </button>
+            </div>
+            {{/details-comp}}
+            {{#details-comp title="Skill set" normal=true}}
+            <div class="normal-box">
+                <button class="add-common">
+                    ➕
+                </button>
+            </div>
+            {{/details-comp}}
+            {{details-comp title="Work" contents=workTable}}
+            {{details-comp title="Summary" contents=summaryTable}}
+            </div>
+            <div class="second-part">
+                {{#details-comp title="About Me" normal=true}}
+                    <div class="normal-box">
+                        <div class="data-box">
+                        <div class="left">
+                        <div class="name">
+                            snsubramani snsubramani
+                        </div>
+                        <div class="role">
+                            President
+                        </div>
+                        </div>
+                        <div class="right">1234567</div>
+                    </div>
+            </div>
+            {{/details-comp}}
 
+            {{#details-comp title="Tags" normal=true}}
+                <div class="normal-box">
+                 <button class="add-common">
+                    ➕
+                </button>
+                </div>
+            {{/details-comp}}
+            {{details-comp title="Basic Info" contents=infoTable}}
+            {{details-comp title="Personal" contents=personalTable}}
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="footer">
+    <div class="foo-left">
+        <div class="fop">Chat</div>
+        <div class="fop">Channel</div>
+        <div class="fop">Contact</div>
+    </div>
+    <input class="foinput" placeholder="Here is your Smart Chat(Ctrl+Space)"/>
+    </div>
+</div>
 {{outlet}}

@@ -1,0 +1,43 @@
+.comp-outer{
+   margin-top: 25px;
+   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+   @include set-dimention(auto, 555px);
+   background-color: white; 
+   .comp-title{
+    @include set-dimention(auto, 200px);
+    padding: 15px 0px 15px 0px;
+    position: relative;
+    overflow: hidden;
+     .circle {
+        @include set-dimention(25px, 25px);
+        border-radius: 25px;
+        display: inline-block;
+        position: absolute;
+        background-color: #458bd6;
+        left:-20px;
+     }
+     .title {
+        display: inline-block;
+        padding: 5px 0px 0px 20px;
+        font-weight: bold;
+     }
+   }
+   .table{
+    @include set-dimention(auto, 555px);
+    @include flex(column, center, center);
+    .row{
+        @include set-dimention(auto, 500px);
+        padding: 5px 0px 5px 0px;
+        @include flex(row, space-between, center);
+        border-bottom: 1px solid #eee;
+        background-color: #ffffff;
+        .key{
+            color: #666666;
+        }
+        .value{
+            @include set-dimention(40px, 250px);
+            @include flex(row, flex-start, center);
+        }
+    }
+   }
+}

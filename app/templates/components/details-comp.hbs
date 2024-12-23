@@ -1,0 +1,20 @@
+<div class="comp-outer">
+    <div class="comp-title">
+    <div class="circle"></div>
+    <div class="title">{{title}}</div>
+    </div>
+    <div>
+    </div>
+    <div class="table">
+        {{#if normal}}
+          {{yield}}
+        {{else}}
+            {{#each contents as |content|}}
+            <div class="row">
+                <div class="key">{{content.title}}</div>
+                <div class="value">{{content.value}}</div>
+            </div>
+            {{/each}}
+        {{/if}}
+    </div>
+</div>

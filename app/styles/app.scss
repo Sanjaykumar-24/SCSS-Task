@@ -1,0 +1,297 @@
+@import 'mixins.scss';
+@import 'components.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+body{
+    margin: 0px;
+    overflow: auto;
+}
+*{
+    font-family: "Lato", serif;
+}
+.people-outer{
+     @include set-dimention(864px, 1512px);
+     position: fixed;
+
+    .top-bar {
+     @include set-dimention(48px, 1512px);
+     @include flex(row, space-between, center);
+     background-color: #272D42;
+     position: fixed;
+     z-index: 1;
+     .app-name{
+        margin-left: 40px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        @include set-dimention(46px, 70px);
+        @include flex(row, center, center);
+     }
+     .more{
+         @include set-dimention(48px, 225px);
+         @include flex(row, center, center);
+         gap:10px;
+        .option{
+            @include set-dimention(48px, 48px);
+            @include flex(row, center, center);
+            background-color: transparent;
+            border: none;
+            color: white;
+        }
+     }
+    }
+
+    .side-bar{
+      @include set-dimention(864px, 40px);
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+      background-color: #4A516B;
+      position: fixed;
+      z-index: 2;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+      .zoho-one-logo{
+        @include set-dimention(48px, 40px);
+        @include flex(row, center, center);
+        background-color: #2e3343;
+        opacity: 0.8;
+        .logo{
+            @include set-dimention(24px, 24px);
+        }
+     }
+      .zoho-one-icons{
+         @include set-dimention(816px, 40px);
+         .zoho-icon {
+            @include set-dimention(41px, 40px);
+            @include flex(row, center, center);
+
+            #active{
+                background-color: white;
+              }
+            .icon-outer{
+                @include set-dimention(25px, 25px);
+                @include flex(row, center, center);
+                border-radius: 3px;
+                .icon{
+                    @include set-dimention(20px, 20px);
+                }
+            }
+            &:hover{
+                background-color: rgba(0, 0, 0, .25);
+            }
+         }
+      }
+    }
+
+    .people-options{
+        @include set-dimention(816px, 71px);
+        position: fixed;
+        top: 48px;
+        left: 40px;
+        background-color: #2e3343;
+        %title-common {
+            @include set-dimention(65px, 68px);
+            color: #B5BFB7;
+            font-size: 12px;
+            text-align: center;
+            @include flex(row, center, center);
+            cursor: pointer;
+            &:hover{
+                background: rgba(54, 59, 77, 0.7);
+            }
+            border-left-width: 3px;
+            border-left-style: solid;
+            border-left-color: transparent;
+        }
+        #active{
+            border-left-color: #80848E;
+            background-color: #363B4D;
+            color: white !important; 
+            &:hover{
+                background: none;
+            }
+        }
+        .title{
+            @extend %title-common;
+        }
+        .bottom{
+            @include set-dimention(58px ,68px);
+            margin-top: 140px;
+            @extend %title-common;
+        }
+    }
+    .profile-content{
+        overflow-y: auto;
+        @include set-dimention(816px, 1472px);
+         margin-top: 48px;
+         margin-left: 43px;
+         .top-scroll{
+            opacity: 0;
+            &.scrolled{
+                opacity: 1;
+            }
+            @include set-dimention(45px, 1405px);
+            margin-left: 68px;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+            @include flex(row, center, center);
+            z-index: 10;
+            .profile{
+                @include set-dimention(44px, 44px);
+                background-color: gray;
+                @include set-border(white, 2px);
+                border-radius: 50px;
+                top:10px;
+                position: absolute;
+                left : 50px;
+            }
+            .top-data{
+                @include set-dimention(45px, 490px);
+                @include flex(row, space-between, center);
+            }
+         }
+        .profile-image-outer {
+          @include set-dimention(180px, 1472px);
+          @include set-bgimage("/profile-back.png");
+          @include flex(column, center,  center);
+          gap:15px;
+          .profile{
+            @include set-dimention(100px, 100px);
+            background-color: gray;
+            @include set-border(white, 3px);
+            border-radius: 100px;
+          }
+          .profile-data{
+            @include flex(row, space-between, center);
+            @include set-dimention(20px, 490px);
+            font-size: 16px;
+            color: #ffffff;
+          }
+        }
+        .options{
+            @include set-dimention(35px, 1402px);
+            background-color: white;
+            margin-left: 68px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #eee;
+            @include flex(row, flex-end, center);
+            .option-box{
+                @include flex(row, center, center);
+                @include set-dimention(35px, 300px);
+                gap:15px;
+                font-size: 15px;
+                font-weight: bold;
+                margin-right: 15px;
+                .gap{
+                    color: gray;
+                }
+            }
+        }
+        .content {
+            @include set-dimention(auto, 1405px);
+            background-color: #fcfcfc;
+            margin-left: 68px;
+            @include flex(row, flex-start, none);
+            gap:25px;
+            .people-sub-options{
+                @include set-dimention(745px, 220px);
+                box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+                position: sticky;
+                top:45px;
+                overflow-y: auto;
+                #active{
+                        border-left-width: 4px;
+                        border-left-style: solid;
+                        border-left-color: #458bd6;
+                        background-color: #f6f6f8;
+                        color: black;
+                }
+                .people-option{
+                    @include set-dimention(auto, auto);
+                    background-color: white;
+                    color: #666666;
+                    font-size: 14px;
+                    line-height: 22px;
+                    text-overflow: ellipsis;
+                    padding: 15px 0 15px 25px;
+                    white-space: nowrap;
+                    border-bottom: 1px solid #eff2f7;
+                    cursor: pointer;
+                    border-left-width: 4px;
+                    border-left-style: solid;
+                    border-left-color: transparent;
+                    &:hover {
+                        border-left-width: 4px;
+                        border-left-style: solid;
+                        border-left-color: #458bd6;
+                        background-color: #f6f6f8;
+                    }
+                }
+            }
+            .right-content {
+                @include set-dimention(1570px, 1157px);
+                @include flex(row, flex-start, none);
+                gap:25px;
+                overflow-y: auto;
+                %common-content{
+                    .normal-box{
+                        @include set-dimention(auto, 555px);
+                        @include flex(column, center, center);
+                       .data-box{
+                        @include set-dimention(20px, 450px);
+                        @include flex(row, space-between, center);
+                        padding: 20px 0px 20px 0px;
+                        border-bottom: 1px solid #eee;
+                       }
+                       .role{
+                        color:#666666; 
+                       }
+                       .add-common{
+                        @include set-dimention(20px, 20px);
+                        @include flex(row, center, center);
+                         padding: 30px 0px 30px 0px;
+                         font-size: 20px;
+                         cursor: pointer;
+                         background-color: white;
+                         border: none;
+                     }
+                    }
+                }
+            .first-part {
+               @include set-dimention(auto, 555px);
+               @extend %common-content;
+            }
+            .second-part{
+                @include set-dimention(auto, 555px);
+                @extend %common-content;
+            }
+        }
+        }
+    }
+    .footer{
+        @include set-dimention(28px, 1512px);
+        background-color: white;
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+        @include flex(row, flex-start, center);
+        gap:2px;
+        .foo-left{
+            @include set-dimention(28px, 250px);
+            @include flex(row, center, center);
+            @include set-border(gray, 0.5px);
+            .fop{
+                @include set-dimention(28px, 100px);
+                @include flex(row, center, flex-end);
+                color: gray;
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+        .foinput{
+            @include set-dimention(25px, 1300px);
+            outline: none;
+            @include set-border(gray, 0.5px);
+            padding-left: 10px;
+        }
+    }
+}

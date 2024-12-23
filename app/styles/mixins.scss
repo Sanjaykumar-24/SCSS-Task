@@ -1,0 +1,23 @@
+@mixin set-dimention($height, $width){
+    height: $height;
+    width: $width;
+}
+
+@mixin flex($position, $justify, $align){
+    display: flex;
+    flex-direction: $position;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin set-bgimage($url) {
+    background-image: url($url);
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin set-border($color, $width){
+    border-width: $width;
+    border-color: $color;
+    border-style: solid;
+}
